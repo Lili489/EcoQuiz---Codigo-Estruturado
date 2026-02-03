@@ -70,5 +70,5 @@ Isso ajuda o projeto a ganhar mais visibilidade.
 ## 🌿 Visual do Jogo
  
 <p align="center">
-<img src="Arquivos/fundo2.1.png" alt="Tela do jogo Eco Quiz Estruturado" width="500"></p>
+<img src="Arquivos/floresta.png" alt="Tela do jogo Eco Quiz Estruturado" width="500"></p>
  
