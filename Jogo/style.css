@@ -1,0 +1,298 @@
+:root{                                      /* início das variáveis usadas no site */
+  --accent: #2e8b57;                     /* cor principal usada foi verde*/
+  --bg-overlay: rgba(0,0,0,0.35);       /* fundo escurecido transparente */
+  --card-bg: rgba(255,255,255,0.95);   /* fundo claro para caixas */
+  --btn: #2e8b57;                     /* cor dos botões principais */
+  --btn-secondary: #6c757d;          /* cor de botões secundários */
+  --text: #08322b;                  /* cor principal do texto */
+}
+
+/* Fundo do jogo */
+body{
+  margin:0;                         /* remove espaço padrão das bordas */
+  min-height:100vh;                /* ocupa a tela inteira verticalmente */
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;   /* fonte do site */
+  color:var(--text);             /* cor do texto */
+  background: url('imagem/forest.jpg') center/cover no-repeat;   /* imagem de fundo ajustada */
+  display:flex;                /* permite centralizar tudo */
+  align-items:center;         /* centraliza vertical */
+  justify-content:center;    /* centraliza horizontal */
+  padding:24px;             /* espaço interno */
+}
+
+/* Estilo geral das telas */
+.screen{
+  width: 420px;                           /* largura padrão */
+  max-width: 95%;                        /* evita passar da tela */
+  background: rgba(0,0,0,0.40);       /* fundo escuro transparente */
+  border-radius: 20px;                 /* cantos arredondados */
+  padding: 25px;                      /* espaço interno */
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);   /* sombra ao redor */
+  color: white;                   /* texto branco */
+  backdrop-filter: blur(6px);      /* efeito de desfoque no fundo */
+  display: flex;                  /* organiza em coluna */
+  flex-direction: column;        /* Deixa tudo abaixo do outro*/
+  gap: 18px;                    /* Dá o espaço entre os elementos*/
+}
+
+.hidden{ display:none !important; }     /* oculta a tela */
+
+/* Tela inicial */
+#startScreen { text-align:center; padding:40px 20px; }                /* centraliza o conteúdo */
+#startScreen h1{ font-size:34px; margin:0 0 8px; color:#fff; }     /* título */
+.lead{ color:#e8f7ef; margin-bottom:18px; }                       /* texto de apresentação */
+
+/* Botões gerais */
+.btn{
+  background:var(--btn);               /* cor do botão */
+  border:none;                        /* deixa sem borda*/
+  color:white;                     /* deixa o texto em branco*/
+  padding:12px 18px;                /* tamanho interno do texto*/
+  border-radius:10px;              /* cantos arredondados */
+  font-weight:700;                /* deixa o texto mais forte*/
+  cursor:pointer;                /* cursor em forma de clique*/
+  width:100%;                   /* ocupa todo o espaço */
+}
+.btn.secondary{ background:var(--btn-secondary); }        /* cor alternativa */
+
+/* Top bar */
+.top-bar{
+  display:flex;                     /* deixa os itens lado a lado*/
+  justify-content:space-between;   /* deixa o espaço entre eles*/
+  align-items:center;             /* centraliza verticalmente*/
+}
+
+/* Caixa de pergunta */
+.question-box{
+  background: rgba(0,0,0,0.45);        /* fundo escuro */
+  padding: 22px;                        /* espaço interno da caixa*/
+  border-radius: 14px;                 /* cantos arredondados */
+  text-align: center;                 /* centraliza texto */
+  backdrop-filter: blur(6px);        /* desfoca a caixa*/
+}
+
+#questionText{ 
+  font-size: 22px;                /* tamanho do texto */
+  font-weight: 700;              /* deixa o texto mais forte*/
+  margin-bottom: 20px;          /* espaço abaixo da margem do texto*/
+}
+
+/* Respostas */
+.answers{
+  display:flex;                      /* organiza as respostas*/
+  flex-direction:column;            /* coloca uma pergunta embaixo uma da outra*/
+  gap:14px;                        /* espaço entre botões */
+}
+
+.answer{
+  display:flex;                  /* organiza letra + texto lado a lado*/
+  align-items:center;           /* alinha verticalmente */
+  gap:14px;                    /* espaço entre letra e texto */
+  background:rgba(255,255,255,0.95);   /* fundo claro */
+  border:none;               /* sem borda */
+  padding:14px 18px;        /* espaço interno */
+  border-radius:12px;      /* arredondado */
+  font-size:18px;         /* tamanho do texto */
+  font-weight:600;       /* texto forte */
+  cursor:pointer;       /* cursor de clique */
+}
+
+.answer .letter{
+  background:#08322b;        /* fundo da bolinha */
+  color:white;              /* texto branco */
+  padding:6px 10px;          /* tamanho da bolinha */
+  border-radius:50%;        /* formato circular */
+}
+
+/* Correto / errado */
+.correct{ background:#0f661d !important; color:white !important; }      /* Quando o jogador escolhe a resposta correta, o botão fica verde */
+.wrong{ background:#8b0000 !important; color:white !important; }       /* Quando o jogador escolhe a resposta errada, o botão fica vermelho*/
+
+/* Controles do jogo */
+.controls {                         /* caixa para controle dos botões*/   
+  display: flex;                   /*organiza os botões dentro da caixa*/
+  flex-direction: column;         /*coloca um abaixo do outro*/
+  gap: 12px;                     /*deixa um espaço entre os botões*/
+  margin-top: 20px;             /*afastamento superior dos botões*/
+  width: 100%;                 /*ocupa toda a largura do botão*/
+} 
+
+.controls .btn {            /* Botões que ficam dentro da área de controles */
+  width: 100%;             /* botões ocupam largura total */
+}
+
+/* Timer */
+#timerCircle .bg {                          /*circulo do tempo*/
+  fill: none;                              /* Não preenche o círculo por dentro — ele fica "vazado" */
+  stroke: rgba(255, 255, 255, 0.4);     /* Define a cor da borda do círculo (branco transparente) */
+  stroke-width: 6;                       /* Define a grossura da borda do círculo */
+}
+
+#timerCircle .progress {
+  fill: none;                          /* o circulo fica sem preenchimento*/
+  stroke: #2ecc71;                  /* Cor verde do círculo que diminui */
+  stroke-width: 6;                   /* Espessura do circulo*/
+  transform: rotate(-90deg);        /* Gira o círculo para começar em cima */
+  transform-origin: center;        /* Faz o giro acontecer no meio certinho */
+  stroke-dasharray: 163;          /* Comprimento total da linha do círculo */
+  stroke-dashoffset: 0;          /* Deslocamento de traço, começa sem esconder nada*/
+}
+
+#timerCircle span {                            /* O número que mostra quantos segundos faltam */
+  position: absolute;                         /* Deixa o número flutuando sobre o círculo */
+  top: 50%;                                  /* Coloca o número no meio na vertical*/
+  left: 50%;                                /* Coloca o número no meio horizontal */
+  transform: translate(-50%, -50%);        /* Ajusta para ficar bem centralizado */
+  font-size: 18px;                        /* Tamanho do número */
+  font-weight: bold;                     /* Número em negrito */
+  color: white !important;            /* Define a cor branca*/
+}
+
+#timerCircle {                       /* Caixa que segura o círculo do tempo e o número no meio */
+  position: relative;               /*Para o número ficar na frente */
+  width: 60px;                     /* Tamanho do círculo */
+  height: 60px;                   /* Mesma altura do circulo*/
+}
+
+/* --- GAME OVER --- */           
+#gameOverScreen {                       /*Tela de fim do jogo*/
+  background: rgba(0,0,0,0.5);       /* Fundo escuro transparente */
+  position: fixed;                    /* Fica preso na tela */
+  inset: 0;                          /* faz a tela ocupar 100% e permite ver as bordas arredondadas */
+  display: flex;                    /* Ocupa a tela inteira */
+  justify-content: center;         /* Centraliza a tela */
+  align-items: center;            /* Centraliza horizontalmente */
+  z-index: 1000;                 /* Indice fica por cima de tudo */
+}
+
+/* CAIXA ESCURA — NÃO É VERMELHA */
+#gameOverScreen .gameover-box {                /*Tela de fim do jogo*/
+  background: rgba(0,0,0,0.75);             /*Caixa escura da tela */
+  padding: 40px;                             /* Espaço interno */
+  border-radius: 20px;                      /* Bordinhas redondas */
+  text-align: center;                      /* Deixa tudo no centro */
+  width: 90%;                             /* Largura da caixa */
+  max-width: 400px;                      /* Tamanho máximo da caixa */
+  box-shadow: 0 0 32px rgba(232, 8, 34, 2); /* brilho vermelho ao redor da caixa */
+}
+
+/* TÍTULO EM VERMELHO NEON */
+#gameOverScreen .gameover-title {           /* Título fim do jogo */
+  font-size: 48px;                         /* Fonte do título */     
+  font-weight: 900;                       /* Espessura da fonte */
+  color: #f41a34;                      /* Cor da fonte */
+  margin-bottom: 20px;                  /* Espaço do título no botão */
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);   /* Sombra para destacar o título */
+}
+
+#gameOverScreen .gameover-sub {          /* Estilo do texto que aparece abaixo do título GAME OVER */
+  font-size: 20px;                      /* Texto de tamanho médio */
+  margin-bottom: 25px;                 /* Espaço abaixo */
+  color: white;                     /* Texto em branco */
+  font-weight: 600;                  /* Letra mais forte */
+}
+
+#gameOverScreen #restartBtn {      /* Estilo do botão de reiniciar o jogo */
+  background: #f41a34;          /* Cor do botão: Vermelho */ 
+  color: white;                /* Cor do texto em branco */
+  padding: 12px 20px;           /* Tamanho do botão */
+  font-size: 16px;             /* Tamanho da fonte do texto */
+  border-radius: 10px;        /* Tamanho das bordas arredondadas */
+  border: none;              /* Sem borda */
+  cursor: pointer;          /* Mãozinha para recomeçar o jogo */
+  font-weight: 500;        /* Tamanho da letra: Média */
+  width: 50%;             /* Tamanho do botão: Médio */
+}
+
+#gameOverScreen #restartBtn:hover {         /* Quando o botão é tocado pelo mouse */
+  background: #cc0000;                   /* Vermelho mais forte quando passa o mouse */
+}
+
+/* --- VITÓRIA --- */
+#winScreen {                          /* Estilo da tela de vitória */
+  background: rgba(0,0,0,0.5);     /* Fundo escuro transparente */
+  position: fixed;                  /* Posição fixa na tela */
+  inset:0;                         /* Ocupa todo o espaço */
+  display: flex;                  /* Centraliza a tela */
+  justify-content: center;       /* Centro horizontal */
+  align-items: center;          /* Centro Vertical */
+  z-index: 1000;               /* Indice fica por cima de tudo */
+}
+
+#winScreen .gameover-box {          /*Tela de fim do jogo*/
+  background: #140022;           /*Caixa escura da tela */
+  padding: 40px;                  /* Espaço interno */
+  border-radius: 20px;           /* Bordinhas redondas */
+  text-align: center;           /* Deixa tudo no centro */
+  width: 90%;                  /* Largura da caixa */
+  max-width: 480px;           /* Tamanho máximo da caixa */
+  box-shadow: 0 0 25px #00ff22; /* brilho verde forte */
+  border: 3px solid #00ff22;   /* borda verde neon */
+}
+
+#winScreen .gameover-title {       /* Título fim do jogo */
+  font-size: 48px;                /* Fonte do título */ 
+  font-weight: 900;              /* Espessura da fonte */
+  color: #00ff22;             /* Cor da fonte */
+  margin-bottom: 20px;         /* Espaço do título no botão */
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);   /* Sombra para destacar o título */
+}
+
+#winScreen .gameover-sub {            /* Texto que aparece embaixo do título de vitória */
+  font-size: 20px;                   /* Texto de tamanho médio */
+  margin-bottom: 15px;              /* Espaço abaixo */
+  color: white;                  /* Texto em branco */
+  font-weight: 500;               /* Letra mais forte */
+}
+
+#winScreen #finalScore {       /* Número da pontuação final */
+  font-weight: bold;          /* Texto bem forte */
+  font-size: 18px;           /* Texto de tamanho médio */
+  color: white;           /* Texto em branco */
+}
+
+/* Faz o texto "Pontos finais ficar em branco*/
+#winScreen .gameover-box p {         /* Caixa game over*/  
+  color: white;                   /* Cor da frase*/  
+  margin: 8px 0;                   /*Espaço das letras*/
+}
+
+/* mantém o número com estilo de destaque (se quiser) */
+#winScreen .gameover-box p #finalScore {      /*Tela de fim do jogo*/
+  color: white;                            /* Cor do número*/  
+  font-weight: 700;                         /* fonte mais forte */
+}
+
+#winScreen #restartWinBtn {    /* Botão de reinciar vitória*/
+  background: #00ff22;      /* verde neon igual do botão */
+  color: #003300;          /* texto verde escuro */
+  padding: 12px 20px;       /* Tamanho do botão */
+  font-size: 16px;         /* Tamanho da fonte do texto */
+  border-radius: 10px;    /* Tamanho das bordas arredondadas */
+  border: none;          /* Deixa sem borda */
+  cursor: pointer;      /* Mãozinha para recomeçar o jogo */
+  font-weight: 400;    /* Tamanho da letra: Média */
+  width: 50%;         /* Tamanho do botão: Médio */
+}
+
+#winScreen #restartWinBtn:hover {   /* código para o mouse em cima*/
+  background: #00cc1c;            /* Deixa o verde neon um pouco mais forte quando passa o mouse*/
+}
+
+.feedback-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.feedback-area .feedback {
+    background: #0dbd22;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+.feedback-area .feedback:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 14px #25ff4c;
+}
