@@ -70,6 +70,6 @@ Isso ajuda o projeto a ganhar mais visibilidade.
 ## 🌿 Visual do Jogo
  
 <p align="center">
-  <img src="img/floresta.jpg" width="500">
+  <img src="img/foto1.png" width="500">
 </p>
  
