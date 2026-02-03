@@ -70,6 +70,6 @@ Isso ajuda o projeto a ganhar mais visibilidade.
 ## 🌿 Visual do Jogo
  
 <p align="center">
-<img src="Arquivos/floresta.jpg" alt="Tela do jogo Eco Quiz Estruturado" width="500">
+  <img src="img/floresta.jpg" alt="Tela do jogo Eco Quiz Estruturado" width="500">
 </p>
  
